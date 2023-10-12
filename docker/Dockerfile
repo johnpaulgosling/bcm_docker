@@ -17,12 +17,12 @@ ENV TZ UTC
 RUN apt-get install --yes --no-install-recommends wget ca-certificates gnupg \
     && apt-get install --yes --no-install-recommends python3-dbus python3-gi python3-apt make \
     && apt-get install --yes --no-install-recommends r-base r-base-dev \
-    && apt-get install --yes --no-install-recommends libcurl4-openssl-dev libv8-dev gcc \
+    && apt-get install --yes --no-install-recommends libcurl4-openssl-dev libv8-dev gcc libxml2-dev libfontconfig1-dev\
     && Rscript -e 'install.packages("codetools")' \
     && Rscript -e 'install.packages("V8")' \
     && Rscript -e 'install.packages("data.table")' \
     && Rscript -e 'install.packages("devtools")' \
-    && Rscript -e 'install.packages("rstan")' \
+    && Rscript -e 'install.packages("rstan", repos = c("https://mc-stan.org/r-packages/", getOption("repos")), version = "2.26.13"")' \
     && Rscript -e 'install.packages("rmarkdown")' \
     && Rscript -e 'install.packages("tinytex")'
 
