@@ -41,6 +41,10 @@ RUN apt-get install --yes --no-install-recommends wget ca-certificates gnupg \
     && echo "options(bspm.version.check = FALSE, bspm.sudo = TRUE)" >> ${RHOME}/etc/Rprofile.site \
     && echo "suppressMessages(bspm::enable())" >> ${RHOME}/etc/Rprofile.site
 
+## BCM3 addition
+RUN && Rscript -e 'install.packages("devtools")' \
+RUN && Rscript -e 'install.packages("rstan")'   
+
 ## Install git and RStudio Server
 RUN apt-get install --yes --no-install-recommends gdebi-core git-all \
     && wget -q https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2023.09.0-463-amd64.deb \
