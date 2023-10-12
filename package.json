@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/johnpaulgosling/BCM_docker/issues"
   },
-  "homepage": "https://github.com/johnpaulgosling/BCM_docker#readme"
+  "homepage": "https://github.com/johnpaulgosling/BCM_docker#readme",
+  "publishConfig": {
+    "johnpaulgosling:registry": "https://npm.pkg.github.com"
+   }
+
 }
+
+
