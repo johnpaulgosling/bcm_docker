@@ -41,7 +41,9 @@ RUN apt-get install --yes --no-install-recommends wget ca-certificates gnupg \
     && echo "options(bspm.version.check = FALSE, bspm.sudo = TRUE)" >> ${RHOME}/etc/Rprofile.site \
     && echo "suppressMessages(bspm::enable())" >> ${RHOME}/etc/Rprofile.site \
 ## BCM3 addition
-    && Rscript -e 'install.packages("data.table")' 
+    && Rscript -e 'install.packages("data.table")' \
+    && Rscript -e 'install.packages("devtools")' \
+    && Rscript -e 'install.packages("rstan")'
 
 ## Install git and RStudio Server
 RUN apt-get install --yes --no-install-recommends gdebi-core git-all \
