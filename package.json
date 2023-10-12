@@ -1,0 +1,19 @@
+{
+  "name": "bcm3",
+  "version": "0.0.1",
+  "description": "MATH3421 Bayesian Computation and Modelling @ Durham University",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnpaulgosling/BCM_docker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnpaulgosling/BCM_docker/issues"
+  },
+  "homepage": "https://github.com/johnpaulgosling/BCM_docker#readme"
+}
