@@ -41,12 +41,15 @@ RUN apt-get install --yes --no-install-recommends wget ca-certificates gnupg \
     && echo "options(bspm.version.check = FALSE, bspm.sudo = TRUE)" >> ${RHOME}/etc/Rprofile.site \
     && echo "suppressMessages(bspm::enable())" >> ${RHOME}/etc/Rprofile.site \
 ## BCM3 addition
-    && apt-get install -y libv8-dev gcc \
+    && apt-get install --yes --no-install-recommends r-base r-base-dev \
+    && apt-get install --yes --no-install-recommends libcurl4-openssl-dev libv8-dev gcc \
     && Rscript -e 'install.packages("codetools")' \
     && Rscript -e 'install.packages("V8")' \
     && Rscript -e 'install.packages("data.table")' \
     && Rscript -e 'install.packages("devtools")' \
-    && Rscript -e 'install.packages("rstan")'
+    && Rscript -e 'install.packages("rstan")' \
+    && Rscript -e 'install.packages("rmarkdown")' \
+    && Rscript -e 'install.packages("tinytex")'
 
 ## Install git and RStudio Server
 RUN apt-get install --yes --no-install-recommends gdebi-core git-all \
