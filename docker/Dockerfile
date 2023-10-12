@@ -24,8 +24,7 @@ RUN apt-get install --yes --no-install-recommends wget ca-certificates gnupg \
 RUN Rscript -e 'install.packages("codetools")' \
     && Rscript -e 'install.packages("V8")' \
     && Rscript -e 'install.packages("data.table")' \
-    && Rscript -e 'install.packages("rmarkdown")' \
-    && Rscript -e 'install.packages("tinytex")'
+    && Rscript -e 'install.packages("rmarkdown")'
 
 ## Install git and RStudio Server
 RUN apt-get install --yes --no-install-recommends gdebi-core git-all \
