@@ -28,7 +28,7 @@ RUN apt-get install --yes --no-install-recommends wget ca-certificates gnupg \
     && apt-get update -qq \
     && DEBIAN_FRONTEND=noninteractive apt install --yes --no-install-recommends r-base-core \
 ## Fourth: add pinning to ensure package sorting
-    && echo "Package: *" > /etc/apt/preferences.d/99cranapt \
+    && echo "Package: *" > /etc/apt/preferences.d/99cranapt \https://r2u.stat.illinois.edu
     && echo "Pin: release o=CRAN-Apt Project" >> /etc/apt/preferences.d/99cranapt \
     && echo "Pin: release l=CRAN-Apt Packages" >> /etc/apt/preferences.d/99cranapt \
     && echo "Pin-Priority: 700"  >> /etc/apt/preferences.d/99cranapt \
@@ -41,6 +41,8 @@ RUN apt-get install --yes --no-install-recommends wget ca-certificates gnupg \
     && echo "options(bspm.version.check = FALSE, bspm.sudo = TRUE)" >> ${RHOME}/etc/Rprofile.site \
     && echo "suppressMessages(bspm::enable())" >> ${RHOME}/etc/Rprofile.site \
 ## BCM3 addition
+    && apt-get install -y libv8-dev \
+    && Rscript -e 'install.packages("V8")' \
     && Rscript -e 'install.packages("data.table")' \
     && Rscript -e 'install.packages("devtools")' \
     && Rscript -e 'install.packages("rstan")'
