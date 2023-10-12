@@ -23,9 +23,7 @@ RUN apt-get install --yes --no-install-recommends wget ca-certificates gnupg \
 ## Setup R
 RUN Rscript -e 'install.packages("codetools")' \
     && Rscript -e 'install.packages("V8")' \
-    && Rscript -e 'install.packages("data.table")'
-    
-RUN Rscript -e 'install.packages("rstan", repos = c("https://mc-stan.org/r-packages/", getOption("repos")), version = "2.26.13"")' \
+    && Rscript -e 'install.packages("data.table")' \
     && Rscript -e 'install.packages("rmarkdown")' \
     && Rscript -e 'install.packages("tinytex")'
 
