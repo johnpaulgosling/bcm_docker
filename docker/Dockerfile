@@ -23,7 +23,10 @@ RUN apt-get install --yes --no-install-recommends wget ca-certificates gnupg \
 ## Setup R
 RUN Rscript -e 'install.packages("codetools")' \
     && Rscript -e 'install.packages("V8")' \
+    && Rscript -e 'install.packages("RcppEigen")' \
     && Rscript -e 'install.packages("data.table")' \
+    && Rscript -e 'install.packages("ggplot2")' \
+    && Rscript -e 'install.packages("loo")' \
     && Rscript -e 'install.packages("rmarkdown")'
 
 ## Install git and RStudio Server
