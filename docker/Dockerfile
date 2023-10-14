@@ -35,8 +35,7 @@ RUN Rscript -e 'install.packages("codetools")' \
     && Rscript -e 'install.packages("markdown")' \
     && Rscript -e 'install.packages("rmarkdown")' \
     && Rscript -e 'install.packages("tidyverse")' \
-    && Rscript -e 'install.packages("mcmcse")' \
-    && Rscript -e 'tinytex::install_tinytex()'
+    && Rscript -e 'install.packages("mcmcse")'
 
 ## Install git and RStudio Server
 RUN apt-get install --yes --no-install-recommends gdebi-core git-all \
@@ -59,3 +58,6 @@ RUN apt-get install --yes --no-install-recommends sudo \
 RUN echo 'APT::Install-Recommends "false";' > /etc/apt/apt.conf.d/90local-no-recommends \
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
     && rm -rf /var/lib/apt/lists/*
+
+## tinytex install
+RUN Rscript -e 'tinytex::install_tinytex()'
