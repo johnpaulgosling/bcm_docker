@@ -21,6 +21,7 @@ RUN apt-get install --yes --no-install-recommends wget ca-certificates gnupg \
     && apt-get install --yes --no-install-recommends libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev \
     && apt-get install --yes --no-install-recommends fftw3 fftw3-dev pkg-config \
     && apt-get install --yes --no-install-recommends texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra \
+    && apt-get install --yes --no-install-recommends lmodern \
     && apt-get install --yes --no-install-recommends r-base r-base-dev 
 
 ## Setup R
