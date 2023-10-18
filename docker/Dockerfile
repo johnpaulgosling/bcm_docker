@@ -20,6 +20,7 @@ RUN apt-get install --yes --no-install-recommends wget ca-certificates gnupg \
     && apt-get install --yes --no-install-recommends libharfbuzz-dev libfribidi-dev \
     && apt-get install --yes --no-install-recommends libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev \
     && apt-get install --yes --no-install-recommends fftw3 fftw3-dev pkg-config \
+    && apt-get install --yes --no-install-recommends texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra \
     && apt-get install --yes --no-install-recommends r-base r-base-dev 
 
 ## Setup R
@@ -58,6 +59,3 @@ RUN apt-get install --yes --no-install-recommends sudo \
 RUN echo 'APT::Install-Recommends "false";' > /etc/apt/apt.conf.d/90local-no-recommends \
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
     && rm -rf /var/lib/apt/lists/*
-
-## tinytex install
-RUN Rscript -e 'tinytex::install_tinytex()'
